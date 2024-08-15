@@ -11,12 +11,12 @@ students.sort()                         # осортировали список 
 print("Отсортированный по алфавиту список студентов:",students)
 
 # здесь бы циклом пройтись, но...
-# создаем словарь, попутно вычисляя средний бал студентов
+# создаем словарь, попутно вычисляя средний балл студентов
 average_grade = {students[0] : (sum(grades[0]) / len(grades[0])),
                  students[1] : (sum(grades[1]) / len(grades[1])),
                  students[2] : (sum(grades[2]) / len(grades[2])),
                  students[3] : (sum(grades[3]) / len(grades[3])),
                  students[4] : (sum(grades[4]) / len(grades[4]))}
 
-print("Словарь. Студент: Его средний бал = ", average_grade)
+print("Словарь. Студент: Его средний балл = ", average_grade)
 
