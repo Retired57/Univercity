@@ -33,7 +33,7 @@ def func1():                                    # организует рабо�
     my_tuple.extend(string_info(input_string))
     my_tuple = tuple(my_tuple)                  # теперь кортеж
     print(f"Ваш кортеж: {my_tuple}")
-    print(f"Счетчик вызовов функций= {calls}")
+    print(f"Счетчик вызовов функций = {calls}")
 
 
 def func2():                                    # организует работу IS_CONTAINS
