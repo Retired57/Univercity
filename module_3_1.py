@@ -74,7 +74,7 @@ while True:                                     # Организация раб�
     if z == 1:
         func1()                                 # STRING_INFO
     elif z == 2:
-        func2()                                 # IS_CONTATNS
+        func2()                                 # IS_CONTAINS
     elif z == 0:                                # выход из программы
         print()
         print("До новых встреч!")
