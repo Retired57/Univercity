@@ -17,8 +17,8 @@ class House:
             print("Такого этажа не существует!")
         else:
             for i in range(1, self.new_floor + 1):
-                print(i)
-
+                print(f"Этаж {i}")
+            print("Приехали!")
 
 # Т Е С Т Ы
 h1 = House('ЖК Горский', 18)
