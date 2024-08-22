@@ -4,13 +4,13 @@
 
 class House:
 
-    __instanse = None
+    __instanse = None                               # переменная обеспечивает однократное формирование пустого списка
 
     def __new__(cls, *args, **kwargs):
         if cls.__instanse == None:
             cls.houses_history = []                 # создаем пустой список, но только 1 раз при создании 1-го объекта
             cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
-            cls.__instanse = super().__new__(cls)
+            cls.__instanse = True
         else:
             cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
         return super().__new__(cls)
@@ -36,8 +36,8 @@ print(House.houses_history)
 # Удаление объектов
 del h2
 del h3
-print(House.houses_history)
+# print(House.houses_history)
 print()
-print("Конец программы")
+print("Конец программы")        # по завершению проги деструктор ложно сообщит о сненсении последнего ЖК - "Эльбрус"
 print()
 
