@@ -1,28 +1,24 @@
 # Домашняя работа по уроку "Различие атрибутов класса и экземпляра."
 # Задача "История строительства"
-from operator import attrgetter
 
-
-# Домашняя работа по уроку "Перегрузка операторов."
-# Задача "Нужно больше этажей"
 
 class House:
 
     __instanse = None
+
     def __new__(cls, *args, **kwargs):
         if cls.__instanse == None:
-            cls.houses_history = []
+            cls.houses_history = []                 # создаем пустой список, но только 1 раз при создании 1-го объекта
+            cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
             cls.__instanse = super().__new__(cls)
-            cls.houses_history.append(args[0])
         else:
-            cls.houses_history.append(args[0])
+            cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
         return super().__new__(cls)
 
 
     def __init__(self, name, number_of_floors):
         self.name = name                                # название ЖК, которому принадлежит дом
         self.number_of_floors = number_of_floors        # кол-во этажей в доме
-        # self.houses_history = name
 
 
     def __del__(self):
@@ -40,31 +36,8 @@ print(House.houses_history)
 # Удаление объектов
 del h2
 del h3
-
 print(House.houses_history)
+print()
+print("Конец программы")
+print()
 
-
-
-"""
-class Example:
-
-    def __new__(cls, *args, **kwargs):
-        print(f"args = {args}")
-        print(f"kwargs = {kwargs}")
-        # print(f"kwargs = {kwargs[0]}")
-        return super().__new__(cls)
-        # return object.__new__(cls)
-
-    def __init__(self, first, second, third):
-        print(f"first = {first}")
-        print(f"second = {second}")
-        print(f"third = {third}")
-
-
-     # def __init__(self, *args, **kwargs):
-     #    print(f"args = {args}")
-     #    print(f"kwargs = {kwargs}")
-
-ex = Example('data', second=25, third=3.14)
-
-"""
