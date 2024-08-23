@@ -10,17 +10,18 @@ class House:
         if cls.__instanse:
             cls.houses_history = []                 # создаем пустой список, но только 1 раз при создании 1-го объекта
             cls.__instanse = False
+
+        cls.houses_history.append(args[0])
         return super().__new__(cls)
 
 
     def __init__(self, name, number_of_floors):
         self.name = name                                # название ЖК, которому принадлежит дом
         self.number_of_floors = number_of_floors        # кол-во этажей в доме
-        self.houses_history.append(name)
+
 
     def __del__(self):
         print(f"{self.name} снесен, но он останется в истории.")
-
 
 # Т Е С Т Ы
 h1 = House('ЖК Эльбрус', 10)
@@ -37,4 +38,5 @@ print(House.houses_history)
 print()
 print("Конец программы")        # по завершению проги деструктор ложно сообщит о сненсении последнего ЖК - "Эльбрус"
 print()
+
 
