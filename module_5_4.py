@@ -36,7 +36,7 @@ print(House.houses_history)
 # Удаление объектов
 del h2
 del h3
-# print(House.houses_history)
+print(House.houses_history)
 print()
 print("Конец программы")        # по завершению проги деструктор ложно сообщит о сненсении последнего ЖК - "Эльбрус"
 print()
