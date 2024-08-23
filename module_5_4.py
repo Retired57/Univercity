@@ -4,13 +4,13 @@
 
 class House:
 
-    __instanse = None                               # переменная обеспечивает однократное формирование пустого списка
+    __instanse = True                               # переменная обеспечивает однократное формирование пустого списка
 
     def __new__(cls, *args, **kwargs):
-        if cls.__instanse == None:
+        if cls.__instanse:
             cls.houses_history = []                 # создаем пустой список, но только 1 раз при создании 1-го объекта
             cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
-            cls.__instanse = True
+            cls.__instanse = False
         else:
             cls.houses_history.append(args[0])      # каждый раз добавляем в список описание объекта
         return super().__new__(cls)
