@@ -24,16 +24,16 @@ class House:
 
 # Т Е С Т Ы
 h1 = House('ЖК Эльбрус', 10)
-print(h1.houses_history)
+print(House.houses_history)
 h2 = House('ЖК Акация', 20)
-print(h2.houses_history)
+print(House.houses_history)
 h3 = House('ЖК Матрёшки', 20)
-print(h3.houses_history)
+print(House.houses_history)
 
 # Удаление объектов
 del h2
 del h3
-print(h1.houses_history)
+print(House.houses_history)
 print()
 print("Конец программы")        # по завершению проги деструктор ложно сообщит о сненсении последнего ЖК - "Эльбрус"
 print()
