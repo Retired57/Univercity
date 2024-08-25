@@ -3,7 +3,7 @@
 
 import time                                         # нужен секундомер для имитации секундного интервала видео
 
-class User:                                         # список (БД) пользователей
+class User:                                         # класс пользователей (БД )
 
     def __init__(self, nickname, password, age):
         self.nickname = nickname
@@ -11,7 +11,7 @@ class User:                                         # список (БД) пол
         self.age = age
 
 
-class Video:                                        # список (БД) фильмов
+class Video:                                        # класс видео (БД фильмов)
 
     def __init__(self, title, duration, time_now = 0, adult_mode = False):
         self.title = title
@@ -22,17 +22,9 @@ class Video:                                        # список (БД) фил
 
 class UrTube:
 
-    __instanse = True                               # переменная обеспечивает однократное формирование пустых списков
-
-    def __new__(cls, *args, **kwargs):
-        if cls.__instanse:
-            cls.users = []                          # создаем пустой список, но только 1 раз при создании 1-го объекта
-            cls.videos = []                         # создаем пустой список, но только 1 раз при создании 1-го объекта
-            cls.__instanse = False
-        return super().__new__(cls)
-
-
     def __init__(self):
+        self.users = []                             # создаем пустой список для БД ПОЛЬЗОВАТЕЛЕЙ
+        self.videos = []                            # создаем пустой список для БД видео
         self.current_user = None                    # обнуляем атрибут текущего пользователя
 
 
@@ -151,4 +143,3 @@ ur.watch_video('Лучший язык программирования 2024 го
 # 1 2 3 4 5 6 7 8 9 10 Конец видео
 # Пользователь vasya_pupkin уже существует
 # urban_pythonist
-
