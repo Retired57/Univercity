@@ -44,6 +44,7 @@ class Fruit(Plant):
     def __init__(self, name, edible=False):
         super().__init__(name)
         super().__init__(edible)
+        self.name = name
         self.edible = True
 
 
