@@ -13,10 +13,10 @@ class Animal:
     def eat(self, food):
         if food.edible:
             self.fed = True             # сытый
-            print(f"{self.name} съел {food.name}, живой и сытый")
+            print(f"{self.name} съел {food.name}, сытый и живой")
         else:
             self.alive = False          # погиб
-            print(f"{self.name} съел {food.name}, погиб голодным")
+            print(f"{self.name} не стал есть {food.name}, погиб голодным")
 
 
 class Mammal(Animal):
