@@ -18,9 +18,9 @@ class Figure:
         return list(self.__color)
 
     def __is_valid_color(self, r, g, b):        # проверяем 0 <= r, g , b <= 255
-        if ((r >= 0 and r <= 255) and
-            (g >= 0 and g <= 255) and
-            (b >= 0 and b <= 255)):
+        if ((0 <= r <= 255) and
+            (0 <= g <= 255) and
+            (0 <= b <= 255)):
             return True
         return False
 
