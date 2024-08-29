@@ -30,7 +30,7 @@ class Pegasus(Horse, Eagle):
         self.y_distance = Eagle().y_distance
         self.sound = Eagle().sound
         super().__init__(self.x_distance, self.sound)
-        super().__init__(self.y_distance, self.sound)
+        Eagle().__init__(self.y_distance, self.sound)
 
     def move(self, dx, dy):
         self.x_distance = super().run(dx)
