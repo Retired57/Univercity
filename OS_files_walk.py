@@ -13,7 +13,6 @@ def get_folder_size(folder_path):                               # функция
 
 
 def list_files_dirs(start_dir, files = True, dirs = False):     # основная функция - инфа по файлам и папкам
-    # start_dir = "."
     if files:                                                   # секция файлов
         os.chdir(start_dir)
         start_dir=os.getcwd()
