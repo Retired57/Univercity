@@ -3,9 +3,9 @@
 import os
 import time
 
-def get_folder_size(folder_path):                               # функция для подсчета объема папки
-    total_size = 0
-    for dirpath, dirnames, filenames in os.walk(folder_path):
+def get_folder_size(folder_path):                               # функция для подсчета объема папки =>
+    total_size = 0                                              # => сумма размеров всех файлов
+    for dirpath, dirnames, filenames in os.walk(folder_path):   # os.walk() - залезет во все уголки... )
         for f in filenames:
             file_path = os.path.join(dirpath, f)
             total_size += os.path.getsize(file_path)
@@ -26,7 +26,8 @@ def list_files_dirs(start_dir, files = True, dirs = False):     # основна
                     os.chdir(dirpath)
                     b_in = True
                 for file in filenames:
-                    parent_dir = os.path.dirname(os.path.abspath(file))
+                    # parent_dir = os.path.dirname(os.path.abspath(file))
+                    parent_dir = dirpath
                     filepath = os.path.join(parent_dir, file)
                     filesize = os.path.getsize(file)
                     formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(os.path.getmtime(file)))
@@ -49,7 +50,7 @@ def list_files_dirs(start_dir, files = True, dirs = False):     # основна
                     os.chdir(dirpath)
                     b_in = True
                 for folder in dirnames:
-                    parent_dir = os.path.dirname(os.path.abspath(folder))
+                    parent_dir = dirpath
                     dir_path = os.path.join(parent_dir, folder)
                     dirsize = get_folder_size(dir_path)
                     formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(os.path.getmtime(folder)))
