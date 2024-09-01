@@ -59,8 +59,7 @@ def list_files_dirs(start_dir, files = True, dirs = False):     # основна
                 if b_in:
                     os.chdir("..")
 
-# directory = "C:\\Users\\User\\PycharmProjects\\pythonProject2\\Module 07"
-directory = r"C:\Users\User\PycharmProjects\pythonProject2\Module 07"
+directory = "."
 list_files_dirs(directory,True, True)               # True - собираем инфу, False - нет
 
 
