@@ -3,18 +3,19 @@
 
 
 def add_everything_up(a, b):
+    c = 0
     try:
-        a += b
+        c = a + b
     except TypeError:
         if (isinstance(a, int) or isinstance(a, float)) and (isinstance(b, str)):  # a - число, b - строка
             return str(a) + b
         elif (isinstance(b, int) or isinstance(b, float)) and (isinstance(a, str)):  # а - строка, b - число
             return a + str(b)
 
-    if isinstance(a, str):
-        return a                                        # сложили две строки
+    if isinstance(c, str):
+        return c                                        # сложили две строки
     else:
-        return round(a, 3)                              # сложили два числа
+        return round(c, 3)                              # сложили два числа
 
 
 # Пример кода:
