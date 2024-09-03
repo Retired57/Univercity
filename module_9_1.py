@@ -38,7 +38,6 @@ def sorted(my_list):
     return ls
 
 
-
 def apply_all_func(int_list, *functions):
     results = []
     for f in functions:                                 # перебираем функции
