@@ -32,15 +32,11 @@ def sum(my_list):
 
 
 def sorted(my_list):
-    s_list = []
-    s_list.extend(my_list)
-    for i in range(len(s_list)):                                    # перебираем весь список, ищем наименьшее значение
-        lowest = i                                                  # и ставим его на место первого элемента
-        for j in range(i + 1, len(s_list)):                         # затем берем список со второго элемента,
-            if s_list[j] < s_list[lowest]:                          # ищем в нем наименьшее значение
-                lowest = j                                          # # и ставим его на место второго элемента.
-        s_list[i], s_list[lowest] = s_list[lowest], s_list[i]       # и т.д.
-    return s_list
+    ls = []
+    ls.extend(my_list)
+    ls.sort()
+    return ls
+
 
 
 def apply_all_func(int_list, *functions):
