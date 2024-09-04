@@ -37,8 +37,8 @@ def get_advanced_writer(file_name):
 write = get_advanced_writer('example.txt')
 write('Это строчка', ['А', 'это', 'уже', 'число', 5, 'в', 'списке'])
 print("Содержимое файла 'example.txt', который создан в текущей директории:")
-with open('example.txt', "r", encoding="utf-8") as my_file:  # создаем файл example.txt в текущей директории
-    txt = my_file.read()
+with open('example.txt', "r", encoding="utf-8") as my_f:  # читаем файл example.txt в текущей директории
+    txt = my_f.read()
 print(txt)
 
 # В файле example.txt записано:
