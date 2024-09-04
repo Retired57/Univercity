@@ -1,7 +1,7 @@
 # Домашнее задание по теме "Декораторы"
 
 def is_prime(in_func):
-    def out_func(*args):
+    def wrapper(*args):                     # так называемая "обертка"
         result = in_func(*args)
         if result > 1:                      # простое число должно быть больше 1
             for i in range(2, result):
@@ -13,7 +13,7 @@ def is_prime(in_func):
         else:
             print("Сумма меньше 2")         # простое число должно быть больше 1
             return result
-    return out_func
+    return wrapper                          # возвращаем "обертку"
 
 @is_prime
 def sum_three(a, b, c):
