@@ -2,17 +2,17 @@
 
 def is_prime(in_func):
     def wrapper(*args):                     # так называемая "обертка"
-        result = in_func(*args)
-        if result > 1:                      # простое число должно быть больше 1
-            for i in range(2, result):
-                if not result % i:          # есть делители => составное
+        res = in_func(*args)
+        if res > 1:                      # простое число должно быть больше 1
+            for i in range(2, res):
+                if not res % i:          # есть делители => составное
                     print("Составное")
-                    return result
+                    return res
             print("Простое")                # делится только на себя => простое
-            return result
+            return res
         else:
             print("Сумма меньше 2")         # простое число должно быть больше 1
-            return result
+            return res
     return wrapper                          # возвращаем "обертку"
 
 @is_prime
