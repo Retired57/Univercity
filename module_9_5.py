@@ -14,7 +14,7 @@ class Iterator:
             self.step = step
             self.start = start
             self.stop = stop
-            self.pointer = self.start
+            self.pointer = 0
 
     def __iter__(self):
         self.pointer = self.start - self.step
