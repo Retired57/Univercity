@@ -12,7 +12,7 @@ def write_words(word_count, file_name):
             sleep(0.1)
     print(f"Завершилась запись в файл {file_name}.")
 
-print("Обычные вычисления")
+print("Запись в файлы в одном потоке")
 time_start = datetime.now()
 # print(f"старт - {time_start}")
 
