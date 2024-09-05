@@ -1,10 +1,9 @@
 # Домашнее задание по теме "Позиционирование в файле".
 # Задача "Записать и запомнить"
 
-from idlelib.iomenu import encoding
 
 def custom_write(file_name, strings):
-    strings_positions = []
+    strings_positions = {}
     file = open(file_name, "w", encoding = "utf-8")
     for i in range(len(strings)):
         dict_list1 = []
@@ -14,11 +13,9 @@ def custom_write(file_name, strings):
         file.write(str(strings[i]) + "\n")              # запись строки в файл
         dict_list1.append(line)
         dict_list1.append(cursor)                       # формируем словарь так, чтобы вывод на консоль
-        dict_list2.append(tuple(dict_list1))            # полностью соответствовал опубликованным ответам
-        dict_list2.append(str(strings[i]))
-        strings_positions.append(tuple(dict_list2))
+        strings_positions[tuple(dict_list1)] = strings[i]
     file.close()
-    return dict(strings_positions)
+    return strings_positions
 
 
 # Пример выполняемого кода:
