@@ -6,14 +6,13 @@ def custom_write(file_name, strings):
     strings_positions = {}
     file = open(file_name, "w", encoding = "utf-8")
     for i in range(len(strings)):
-        dict_list1 = []
-        dict_list2 = []
+        dict_list = []
         cursor = file.tell()
         line = i + 1
-        file.write(str(strings[i]) + "\n")              # запись строки в файл
-        dict_list1.append(line)
-        dict_list1.append(cursor)                       # формируем словарь так, чтобы вывод на консоль
-        strings_positions[tuple(dict_list1)] = strings[i]
+        file.write(str(strings[i]) + "\n")                  # запись строки в файл
+        dict_list.append(line)
+        dict_list.append(cursor)                            # формируем словарь так, чтобы вывод на консоль
+        strings_positions[tuple(dict_list)] = strings[i]    # соответствовал образцу в задании
     file.close()
     return strings_positions
 
