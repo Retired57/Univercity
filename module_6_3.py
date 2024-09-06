@@ -4,7 +4,6 @@
 class Horse:
 
     def __init__(self):
-        super().__init__()
         self.x_distance = 0
         self.sound = 'Frrr'
 
@@ -23,11 +22,10 @@ class Eagle:
 
 
 class Pegasus(Horse, Eagle):
-    sound = Eagle().sound                           # sound = Eagle().sound, относится ко всему классу Пегасов
 
     def __init__(self):
-        super().__init__()
-        self.sound = Pegasus.sound
+        Horse.__init__(self)
+        Eagle.__init__(self)
 
     def move(self, dx, dy):
         self.run(dx)
@@ -58,7 +56,6 @@ p1.voice()
 
 # Вывод на консоль:
 # ==================
-
 # (0, 0)
 # (10, 15)
 # (5, 35)
