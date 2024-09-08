@@ -24,8 +24,7 @@ class Bank:
             self.balance += random_number
             print(f"Пополнение: {random_number}. Баланс: {self.balance}")
             if (self.balance >= 500) and self.lock.locked():
-                while self.lock.locked():
-                    self.lock.release()
+                self.lock.release()
             sleep(0.001)
 
     def take(self):
@@ -74,4 +73,3 @@ print(f'Итоговый баланс: {bk.balance}')
 # Запрос на 288
 # Запрос отклонён, недостаточно средств
 # Итоговый баланс: 276
-
