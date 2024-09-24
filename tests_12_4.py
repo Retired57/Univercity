@@ -111,7 +111,8 @@ class RunnerTest(unittest.TestCase):
         except TypeError:
             logging.warning(msg="'test_challenge'. Неверный тип данных для объекта Runner", exc_info=True)
         except AssertionError:
-            logging.warning(msg=f"'test_challenge'. Ошибка! Дистанции равны! {first.distance} = {second.distance} !", exc_info=True)
+            logging.warning(msg=f"'test_challenge'. Ошибка! Дистанции равны!"
+                                f" {first.distance} = {second.distance} !", exc_info=True)
 
 
 if __name__ == "__main__":
