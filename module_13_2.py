@@ -24,7 +24,7 @@ async def cmd_finish(message: Message):
 
 
 @router.message(F.text.lower() == "urban")
-async def msg_Urban(message: Message):
+async def msg_urban(message: Message):
     print("Привет, Urban!")
 
 
