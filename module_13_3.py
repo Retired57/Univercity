@@ -26,7 +26,7 @@ async def cmd_finish(message: Message):
 
 
 @router.message(F.text.lower() == "urban")
-async def msg_Urban(message: Message):
+async def msg_urban(message: Message):
     await message.reply("Привет, Urban!")
     print("Привет, Urban!")
 
@@ -46,7 +46,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    my_token = " -= Your TOKEN must be here! =- "                # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    my_token = " -= Your TOKEN must be here! =- "  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     bot = Bot(token=my_token)
     dp = Dispatcher(storage=MemoryStorage())
     asyncio.run(main())
