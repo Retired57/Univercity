@@ -26,7 +26,7 @@ for i in range(1, 11):
 cr.execute("UPDATE Users SET balance = ? WHERE id % 2 = ?", ("500", 1))
 
 # удаляем каждую третью запись, начиная с 1-й записи
-cr.execute("DELETE FROM Users WHERE (id + 3 ) % 3 = ?", (1,))
+cr.execute("DELETE FROM Users WHERE id % 3 = ?", (1,))
 
 # отбираем записи без id, в которых age != 60
 cr.execute("SELECT username, email, age, balance FROM Users WHERE age != ?", (60,))
