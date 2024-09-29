@@ -32,9 +32,8 @@ def add_product():  # --- заполнение БД только уникаль�
         check = cur.execute("SELECT * FROM Products WHERE title = ?", (f"Витамин {i} из БД",))
 
         if check.fetchone() is None:
-            img_file = open(f"product_{i}.jpg", "rb")
-            photo = sqlite3.Binary(img_file.read())
-            img_file.close()
+            with open(f"product_{i}.jpg", "rb") as img_file:
+                photo = sqlite3.Binary(img_file.read())
             cur.execute("INSERT INTO Products (title, description, price, image) VALUES (?, ?, ?, ?)",
                         (f"Витамин {i} из БД", f"Вкусный витамин {i} из БД", f"{i * 100}", photo))
 
