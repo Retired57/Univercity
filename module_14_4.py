@@ -180,8 +180,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    # my_token = " -= Your TOKEN must be here! =- "                # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    my_token = "7790394733:AAE0ovc57wSLi141xN7uFBRgG62Ks_EBYlM"
+    my_token = " -= Your TOKEN must be here! =- "  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     bot = Bot(token=my_token)
     dp = Dispatcher(storage=MemoryStorage())
     asyncio.run(main())
