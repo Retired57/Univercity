@@ -2,74 +2,63 @@
 # Задача "Найдёт везде"
 
 class WordsFinder:
-
-    _points = [',', '.', '=', '!', '?', ';', ':', ' - ']            # заменяем эти символы пробелами
+    _points = [',', '.', '=', '!', '?', ';', ':', ' - ']  # заменяем эти символы пробелами
 
     def __init__(self, *args):
         self.args = args
         self.file_names = []
         self.word = ""
-        for i in range(len(self.args)):
-            self.file_names.append(args[i])
+        # новый вариант
+        for nf in self.args:
+            self.file_names.append(nf)
 
     def get_all_words(self):
-        dict_list = []
-        for i in self.file_names:                               # перебираем все файлы
-            with open(i, "r", encoding="utf-8") as my_file:     # открываем файл
-                file_ = my_file.read().lower()                  # считываем сразу в строчных буквах
-            my_list = []
+        all_words = {}
+        for fn in self.file_names:  # перебираем все файлы
+            with open(fn, "r", encoding="utf-8") as my_file:  # открываем файл
+                text = my_file.read().lower()  # считываем сразу в строчных буквах
+
             file = ""
-            for j in range(len(self._points)):                                  # перебираем запрещенные символы
-                file = file_.replace(self._points[j], " ").split()        # заменяем пробелами и сплитуем
-            my_list.append(i)
-            my_list.append(file)
-            dict_list.append(my_list)                       # формируем нужный список
-        all_words = dict(dict_list)                         # и создаем словарь
+            for p in self._points:  # перебираем запрещенные символы
+                file = text.replace(p, " ").split()  # заменяем пробелами и сплитуем
+            all_words[fn] = file  # и создаем словарь
         return all_words
 
     def find(self, word):
         self.word = word.lower()
-        dict_list = []
-        for i in self.file_names:                           # перебираем все файлы
-            my_list = []
-            list_i = self.get_all_words().get(i)            # использую метод get_all_words(self)
+        word_position = {}
+        for fn in self.file_names:  # перебираем все файлы
+            list_i = self.get_all_words().get(fn)  # использую метод get_all_words(self)
             pos = 0
-            for j in range(len(list_i)):
-                if list_i[j] == self.word:
-                    pos = j + 1
+            for w in list_i:
+                pos += 1
+                if w == self.word:
                     break
-            my_list.append(i)
-            my_list.append(str(pos))
-            dict_list.append(my_list)                       # формируем нужный список
-        word_position = dict(dict_list)                     # и создаем словарь
+            word_position[fn] = str(pos)  # и создаем словарь
         return word_position
 
     def count(self, word):
+        word_count = {}
         self.word = word.lower()
-        dict_list = []
-        for i in self.file_names:                           # перебираем все файлы
-            my_list = []
-            list_i = self.get_all_words().get(i)            # использую метод get_all_words(self)
+        for fn in self.file_names:  # перебираем все файлы
+            list_i = self.get_all_words().get(fn)  # использую метод get_all_words(self)
             count = 0
-            for j in range(len(list_i)):
-                if list_i[j] == self.word:
+            for w in list_i:
+                if w == self.word:
                     count += 1
-            my_list.append(i)
-            my_list.append(str(count))
-            dict_list.append(my_list)                       # формируем нужный список
-        word_count = dict(dict_list)                        # и создаем словарь
+            word_count[fn] = str(count)  # и создаем словарь
         return word_count
 
 
-#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Пример выполнения программы:
-#=============================
+# =============================
 
 finder2 = WordsFinder('test_file.txt')
-print(finder2.get_all_words()) # Все слова
-print(finder2.find('TEXT')) # 3 слово по счёту
-print(finder2.count('teXT')) # 4 слова teXT в тексте всего
+print(finder2.get_all_words())  # Все слова
+print(finder2.find('TEXT'))  # 3 слово по счёту
+print(finder2.count('teXT'))  # 4 слова teXT в тексте всего
 
 # finder1 = WordsFinder('Walt Whitman - O Captain! My Captain!.txt',
 #                       'Rudyard Kipling - If.txt',
@@ -80,9 +69,8 @@ print(finder2.count('teXT')) # 4 слова teXT в тексте всего
 
 
 # Вывод на консоль:
-#==================
+# ==================
 
 # {'test_file.txt': ["it's", 'a', 'text', 'for', 'task', 'найти', 'везде', 'используйте', 'его', 'для', 'самопроверки', 'успехов', 'в', 'решении', 'задачи', 'text', 'text', 'text']}
 # {'test_file.txt': 3}
 # {'test_file.txt': 4}
-
