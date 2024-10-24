@@ -1,3 +1,6 @@
+# Домашнее задание по теме "Основы Fast Api и маршрутизация"
+# Задача "Начало пути"
+
 from fastapi import FastAPI
 
 app = FastAPI()
