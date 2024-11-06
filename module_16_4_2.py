@@ -50,14 +50,12 @@ def update_user(user_id: int, username: str, age: int) -> User:
 def delete_user(user_id: int) -> User:
     try:
         gen = (users[i] for i in range(len(users)) if len(users) > 0 and users[i].id == user_id)
-        j = (i for i in range(len(users)) if len(users) > 0 and users[i].id == user_id)
-        edit_user = next(gen)
-        indx = next(j)
+        del_user = next(gen)
     except StopIteration or IndexError or NameError:
         raise HTTPException(status_code=404, detail="User was not found")
     else:
-        users.pop(indx)
-        return edit_user
+        users.remove(del_user)
+        return del_user
 
 
 @app.delete("/")
