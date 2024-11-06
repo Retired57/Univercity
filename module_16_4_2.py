@@ -38,7 +38,7 @@ def update_user(user_id: int, username: str, age: int) -> User:
     try:
         gen = (users[i] for i in range(len(users)) if users[i].id == user_id)
         edit_user = next(gen)
-    except IndexError or StopIteration:
+    except StopIteration or IndexError:
         raise HTTPException(status_code=404, detail="User was not found")
     else:
         edit_user.username = username
