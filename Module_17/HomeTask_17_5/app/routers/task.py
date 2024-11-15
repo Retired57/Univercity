@@ -68,7 +68,7 @@ async def update_task(db: Annotated[Session, Depends(get_db)], task_id: int, tas
     db.commit()
     return {
         "status_code": status.HTTP_200_OK,
-        "transaction": "User has been successfully updated"
+        "transaction": "Task has been successfully updated"
     }
 
 
