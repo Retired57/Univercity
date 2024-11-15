@@ -1,10 +1,7 @@
-from fastapi import APIRouter
-
 from fastapi import APIRouter, Depends, status, HTTPException
-from pyparsing import Empty
+
 # Сессия БД
 from sqlalchemy.orm import Session
-
 # Функция подключения к БД
 from ..backend.db_depends import get_db
 # Аннотации, Модели БД и Pydantic.
