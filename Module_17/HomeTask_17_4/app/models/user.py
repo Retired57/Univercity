@@ -1,17 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
-#======================================
-# from backend.db import Base
-# from models import *
-
 from ..backend.db import Base
 from ..models import *
-#======================================
-
-
-# from HomeTask_17_2.app.backend.db import Base             # это для моей структуры
-# from HomeTask_17_2.app.models import *                    # это для моей структуры
 
 
 class User(Base):
